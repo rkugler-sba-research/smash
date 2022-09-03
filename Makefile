@@ -2,7 +2,7 @@
 
 all: hello stage1 stage2 stage3 stage4
 
-hello: hello.asm
+hello: hello.asm hihi.asm hello-asm hello.c
 	nasm -f elf64 hello.asm
 	ld -s -o hello-asm hello.o
 	nasm -f elf64 hihi.asm
@@ -28,6 +28,9 @@ stage4: stage4.c
 
 sudo:
 	sudo chown root ./stage1 && sudo chmod u+s ./stage1
+
+uaf: uaf.c
+	gcc -Wall -m32 -fno-stack-protector -no-pie -o uaf uaf.c
 
 clean:
 	rm stage1 stage2 stage3 stage1_protectorall
