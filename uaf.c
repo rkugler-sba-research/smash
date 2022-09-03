@@ -75,7 +75,7 @@ main(int argc, char** argv)
 				{
 					printf("you are limited\n");
 				}
-				free(current_user);
+				//free(current_user);
 			}
 			else
 			{
